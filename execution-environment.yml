@@ -9,6 +9,7 @@ dependencies:
 additional_build_steps:
   append:
     - RUN alternatives --set python /usr/bin/python3
+    - RUN pip install git+https://github.com/vmware/vsphere-automation-sdk-python.git@46aa57de24420ead6af13fe4c8783f1ff66ffcfd
     - COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor
     - RUN mkdir -p /var/run/receptor
     - ADD run.sh /run.sh
